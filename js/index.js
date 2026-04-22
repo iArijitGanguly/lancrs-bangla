@@ -1,0 +1,1 @@
+import { productsByCategory } from './products.js';

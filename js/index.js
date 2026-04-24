@@ -11,6 +11,8 @@ function populateCategories() {
 
         categoryItem.textContent = category;
 
+        categoryItem.href = `productList.html?category=${category}`;
+
         categoryList.appendChild(categoryItem);
     });
 }

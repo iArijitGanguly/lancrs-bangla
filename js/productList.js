@@ -6,11 +6,18 @@ function populateProducts() {
     const queryParamsObject = Object.fromEntries(queryParams.entries());
 
     const category = queryParamsObject['category'];
-    
-    const categoryItems = productsByCategory[category];
+
+    let categoryItems = [];
+
+    if(category) {
+        categoryItems = productsByCategory[category];
+    } else {
+        categoryItems = Object.values(productsByCategory).flat();
+    }
     
     categoryItems.forEach((item) => {
         const productItem = document.createElement('a');
+        productItem.href = `productDetails.html?product-id=${item.id}`;
         productItem.classList.add('product-item', 'text-decoration-none', 'd-inline-block');
 
         const productImage = document.createElement('div');
